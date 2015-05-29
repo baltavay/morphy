@@ -32,8 +32,8 @@ class Morphy
       suffix = Morphy.suffixes[Morphy.paradigms[@para_id][1]]
       grammeme = Morphy.grammemes[Morphy.paradigms[@para_id][2]]
       word = @word.dup
-      word.gsub!(Morphy.prefixes[@prefix_id],"")
-      word.gsub!(Morphy.suffixes[@suffix_id],"")
+      word.sub!(Morphy.prefixes[@prefix_id],"")
+      word = word.reverse.sub(Morphy.suffixes[@suffix_id],"").reverse
       word
     end
 
