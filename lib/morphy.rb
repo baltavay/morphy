@@ -64,7 +64,7 @@ class Morphy
   end
   def initialize    
     
-    path = File.dirname(__FILE__)+"/morphy/dictionary/"
+    path = File.dirname(__FILE__)+"/dictionary/"
 
     @dawg = Dawg.load("#{path}/dawg.dat") # why it's eating so much memory?
     @@suffixes ||= File.open("#{path}/suffixes.txt", 'r').read.split("\n")
@@ -91,5 +91,8 @@ class Morphy
       Word.new(word,para_id,index)
     end
     results
+  end
+  def to_s
+    "Morphy"    
   end
 end
