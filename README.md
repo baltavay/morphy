@@ -20,17 +20,21 @@ Or install it yourself as:
 
     morphy = Morphy.new
 
-    word = morphy.find_similar("облако").first
+    word = morphy.query("облако").first
 
     datv = word.inflect(["datv"])
     datv.to_s
     => облаку
     datv.inflect(["nomn"]).to_s
     => облако
+    datv.inflect(["nomn", "plur"]).to_s
+    => облака
     datv.lexemme.map(&:to_s)
     => ["облако", "облака", "облаку", "облако", "облаком", "облаке", "облака", "облаков", "облакам", "облака", "облаками", "облаках"]
     datv.normal_form
     => облако
+
+
 
 
 
