@@ -16,17 +16,16 @@ module Morphy
     end
 
     def normal_form
-      self.inflect(["nomn"])
+      prefix = ::Morphy.prefixes[::Morphy.paradigms[@para_id][0]]
+      suffix = ::Morphy.suffixes[::Morphy.paradigms[@para_id][1]]
+      "#{prefix}#{stem}#{suffix}"
     end
 
     def grammemes
       ::Morphy.grammemes[@grammeme_id]
     end
 
-    def stem
-      prefix = ::Morphy.prefixes[::Morphy.paradigms[@para_id][0]]
-      suffix = ::Morphy.suffixes[::Morphy.paradigms[@para_id][1]]
-      grammeme = ::Morphy.grammemes[::Morphy.paradigms[@para_id][2]]
+    def stem      
       word = @word.dup
       word.sub!(::Morphy.prefixes[@prefix_id], '')
       word = word.reverse.sub(::Morphy.suffixes[@suffix_id].reverse, '').reverse

@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "morphy"
-  spec.version       = "0.0.4"
+  spec.version       = "0.0.5"
   spec.date          = '2017-03-19'
   spec.authors       = ["Maksatbek Mansurov"]
   spec.email         = ["maksat.mansurov@gmail.com"]
