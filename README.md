@@ -15,12 +15,11 @@ Or install it yourself as:
 
     $ gem install morphy
 
-## Usage
-    # Words must be added in alphabetical order
+## Usage    
     require "morphy"
-    
+
     morphy = Morphy.new
-    
+
     word = morphy.find_similar("облако").first
 
     datv = word.inflect(["datv"])
@@ -42,4 +41,3 @@ Or install it yourself as:
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
-

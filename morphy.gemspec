@@ -2,8 +2,8 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "morphy"
-  spec.version       = "0.0.3"
-  spec.date          = '2015-05-29'
+  spec.version       = "0.0.4"
+  spec.date          = '2017-03-19'
   spec.authors       = ["Maksatbek Mansurov"]
   spec.email         = ["maksat.mansurov@gmail.com"]
   spec.description   = %q{Morphological analyzer (POS tagger + inflection engine) for Russian language in ruby. Inspired by pymorphy2}
@@ -14,6 +14,6 @@ Gem::Specification.new do |spec|
   spec.files         = `git ls-files`.split($/)
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
-  spec.require_paths = ["lib"]    
-  spec.add_development_dependency 'dawg', '~> 0.0', '>= 0.0.2'
+  spec.require_paths = ["lib"]
+  spec.add_runtime_dependency 'dawg', '~> 0.0', '>= 0.0.4'
 end
