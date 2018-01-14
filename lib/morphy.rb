@@ -10,13 +10,13 @@ module Morphy
     end
 
     def query(word)
-      results = @dawg.query(word).select { |result| result.present? }
-      results = results.map do |result|
-        result = result.to_s
-        word, para_id, index = result.split(' ')
+      entries = @dawg.query(word)
+
+      entries.lazy.map do |row|
+        next unless row.present?
+        word, para_id, index = row.to_s.split(' ')
         Word.new(word, para_id, index)
       end
-      results
     end
 
     def to_s
