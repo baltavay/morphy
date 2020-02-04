@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 module Morphy
   class Word
     attr_accessor :para_id
 
-    def initialize(word,para_id,index)
+    def initialize(word, para_id, index)
       @word = word
       @para_id = para_id.to_i
       @index = index.to_i
@@ -25,7 +27,7 @@ module Morphy
       ::Morphy.grammemes[@grammeme_id]
     end
 
-    def stem      
+    def stem
       word = @word.dup
       word.sub!(::Morphy.prefixes[@prefix_id], '')
       word = word.reverse.sub(::Morphy.suffixes[@suffix_id].reverse, '').reverse
@@ -55,6 +57,10 @@ module Morphy
         return word if (word.grammemes & grammemes).length == grammemes.length
       end
       nil
+    end
+
+    def inspect
+      @word
     end
   end
 end

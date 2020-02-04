@@ -1,10 +1,10 @@
-require "dawg"
-require_relative "word"
+# frozen_string_literal: true
+
+require 'dawg'
+require_relative 'word'
 
 module Morphy
-
   class Morphy
-
     def initialize
       @dawg = Dawg.load("#{::Morphy.path}/dawg.bin")
     end
@@ -13,14 +13,15 @@ module Morphy
       entries = @dawg.query(word)
 
       entries.lazy.map do |row|
-        next unless row.present?
+        next if row.empty?
+
         word, para_id, index = row.to_s.split(' ')
         Word.new(word, para_id, index)
       end
     end
 
     def to_s
-      "Morphy"
+      'Morphy'
     end
   end
 
@@ -31,7 +32,7 @@ module Morphy
   end
 
   def path
-    File.dirname(__FILE__)+"/dictionary"
+    File.dirname(__FILE__) + '/dictionary'
   end
 
   def paradigms
@@ -47,7 +48,10 @@ module Morphy
   end
 
   def grammemes
-    @@grammemes ||= File.open("#{path}/grammemes.txt", 'r').read.split("\n").map{|g| g.split(",")}
+    @@grammemes ||=
+      File
+      .open("#{path}/grammemes.txt", 'r')
+      .read
+      .split('\n').map { |g| g.split(',') }
   end
-
 end
