@@ -52,6 +52,6 @@ module Morphy
       File
       .open("#{path}/grammemes.txt", 'r')
       .read
-      .split('\n').map { |g| g.split(',') }
+      .split("\n").map { |g| g.split(',') }
   end
 end
