@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "morphy"
-  spec.version       = "0.0.7"
+  spec.version       = "0.0.8"
   spec.date          = '2020-02-04'
   spec.authors       = ["Maksatbek Mansurov"]
   spec.email         = ["maksat.mansurov@gmail.com"]
@@ -15,5 +15,5 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
-  spec.add_runtime_dependency 'dawg', '~> 0.0', '>= 0.0.6'
+  spec.add_runtime_dependency 'dawg', '~> 0.0', '>= 0.0.7'
 end
